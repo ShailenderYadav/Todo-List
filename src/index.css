@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+      'Noto Color Emoji';
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-gray-50 min-h-screen text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-500;
+  }
+
+  .input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm transition-colors duration-200;
+  }
+
+  .select {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4 sm:p-6;
+  }
+
+  .modal {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4 z-50;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-lg shadow-xl w-full max-w-md mx-auto p-4 sm:p-6 max-h-[90vh] overflow-y-auto;
+  }
+}
+
+/* Custom styles for todo items */
+.todo-item {
+  @apply bg-white rounded-lg shadow-sm p-4 transition-all duration-200 hover:shadow-md;
+}
+
+.todo-item.completed {
+    @apply bg-gray-50;
+  }
+
+.todo-item .title {
+  @apply text-base sm:text-lg font-medium text-gray-900 break-words;
+}
+
+.todo-item .description {
+  @apply mt-1 text-sm text-gray-500 break-words;
+}
+
+.todo-item .due-date {
+  @apply mt-2 text-xs text-gray-400;
+}
+
+.todo-item .status {
+  @apply mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.todo-item .status.pending {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.todo-item .status.completed {
+  @apply bg-green-100 text-green-800;
+}
+
+/* Form styles */
+.form-group {
+  @apply mb-4 last:mb-0;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+/* Responsive grid for todo items */
+@media (min-width: 640px) {
+  .todo-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+  }
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-primary-600;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-2 border-primary-600 border-t-transparent;
+}
+
+/* Empty state */
+.empty-state {
+  @apply text-center py-12 px-4;
+}
+
+.empty-state-text {
+  @apply text-gray-500 text-sm sm:text-base;
+}
+
+/* Button group */
+.button-group {
+  @apply flex flex-wrap gap-2;
+}
+
+/* Responsive text */
+.responsive-text {
+  @apply text-sm sm:text-base;
+}
+
+/* Responsive heading */
+.responsive-heading {
+  @apply text-xl sm:text-2xl md:text-3xl font-bold;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
