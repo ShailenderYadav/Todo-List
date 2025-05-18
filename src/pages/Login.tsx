@@ -51,15 +51,15 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center">
             Sign in to your account
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 text-center">
             Or{' '}
-            <a href="/signup" className="font-medium text-primary-600 hover:text-primary-500">
+            <a href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
               create a new account
             </a>
           </p>
@@ -67,7 +67,7 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="form-label">
+              <label htmlFor="email" className="sr-only">
                 Email address
               </label>
               <input
@@ -77,12 +77,12 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input"
-                placeholder="Enter your email"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Email address"
               />
             </div>
             <div>
-              <label htmlFor="password" className="form-label">
+              <label htmlFor="password" className="sr-only">
                 Password
               </label>
               <input
@@ -92,8 +92,8 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="input"
-                placeholder="Enter your password"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Password"
               />
             </div>
           </div>
@@ -102,32 +102,30 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-primary w-full"
+              className="relative w-full flex justify-center items-center px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
             >
               {loading ? (
                 <>
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <svg
-                      className="animate-spin h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      />
-                    </svg>
-                  </span>
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
+                  </svg>
                   Signing in...
                 </>
               ) : (
@@ -141,4 +139,4 @@ const Login = ({ setIsAuthenticated, setUser }: LoginProps) => {
   );
 };
 
-export default Login; 
+export default Login;
